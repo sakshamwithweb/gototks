@@ -1,0 +1,41 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('https://images.unsplash.com/photo-1524312966005-030e396636fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fG9sZCUyMHBhcGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60');
+}
+
+#progress {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(10, 60px);
+    gap: 5px;
+    width: 55vw;
+    height: auto;
+    border: 1px solid gray;
+    border-radius: 7px;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: white;
+}
+
+.box {
+    margin: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 3px;
+    border: 2px solid #555;
+    cursor: pointer;
+    background-image: url("/media/locked.png");
+    background-size: contain;
+}
+
+#filled {
+    
+}
