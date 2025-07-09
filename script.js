@@ -1,4 +1,4 @@
-import { fetchData } from "./module.js"
+import { fetchData, timeout } from "./module.js"
 
 const main = async () => {
     const targetAmount = 1350;
@@ -11,14 +11,25 @@ const main = async () => {
     const filledBoxes = Math.floor(totalAmount / oneBoxValue);
 
     for (let i = 1; i <= targetAmount / oneBoxValue; i++) {
+        const img = document.createElement("img")
+        img.setAttribute("src", "/media/locked.png")
+        img.classList.add("img");
+
         const box = document.createElement("div")
+        box.appendChild(img)
         box.classList.add('box')
         progress.appendChild(box)
     }
 
-    for (let i = 1; i <= filledBoxes; i++) {
-        const box = document.getElementsByClassName(`box`)[i-1]
-        box.setAttribute("id", "filled")
+    await timeout(10)
+
+    for (let i = 0; i <= filledBoxes; i++) {
+        const box = document.getElementsByClassName(`box`)[i]
+        if (i < filledBoxes) {
+            box.setAttribute("id", "filled")
+        } else {
+            box.setAttribute("class", "near")
+        }
         console.log(box)
     }
 }

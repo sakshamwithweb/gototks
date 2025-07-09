@@ -3,3 +3,7 @@ export const fetchData = async () => {
     const res = await req.json()
     return res
 }
+
+export const timeout = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
