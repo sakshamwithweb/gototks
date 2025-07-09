@@ -12,12 +12,12 @@ const main = async () => {
 
     for (let i = 1; i <= targetAmount / oneBoxValue; i++) {
         const box = document.createElement("div")
-        box.classList.add('box', `box-${i}`)
+        box.classList.add('box')
         progress.appendChild(box)
     }
 
     for (let i = 1; i <= filledBoxes; i++) {
-        const box = document.getElementsByClassName(`box-${i}`)[0]
+        const box = document.getElementsByClassName(`box`)[i]
         box.setAttribute("id", "filled")
         console.log(box)
     }

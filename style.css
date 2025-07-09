@@ -1,3 +1,72 @@
+.torn_container>div:first-child {
+    margin-left: var(--torn-shadow-offset-x);
+    margin-top: var(--torn-shadow-offset-y);
+    left: 0px;
+    top: 0px;
+    right: calc(0px - var(--torn-shadow-offset-x));
+    bottom: calc(0px - var(--torn-shadow-offset-y));
+    position: absolute;
+    z-index: 1;
+    filter: blur(var(--torn-shadow-blur));
+}
+
+.torn_container>div:nth-child(2),
+.torn_container>div:nth-child(2)>span {
+    vertical-align: middle;
+}
+
+.torn_container>div:nth-child(2),
+.torn_left>div:nth-child(2):before,
+.torn_right>div:nth-child(2):after {
+    background-color: var(--torn-background-color);
+}
+
+.torn_container>div:nth-child(2),
+.torn_container>div:nth-child(2) {
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    padding: 0.4em;
+}
+
+.torn_left>div:nth-child(2):before,
+.torn_left>div:first-child:before {
+    content: '';
+    position: absolute;
+    left: calc(0em - var(--torn-left-width));
+    top: 0px;
+    width: var(--torn-left-width);
+    bottom: 0px;
+    -webkit-clip-path: var(--torn-left-clip-path);
+    clip-path: var(--torn-left-clip-path);
+}
+
+.torn_container>div:first-child,
+.torn_left>div:first-child:before,
+.torn_right>div:first-child:after {
+    background-color: var(--torn-shadow-background-color);
+}
+
+.torn_right>div:nth-child(2):after,
+.torn_right>div:first-child:after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 0px;
+    right: calc(0px - var(--torn-right-width));
+    bottom: 0px;
+    -webkit-clip-path: var(--torn-right-clip-path);
+    clip-path: var(--torn-right-clip-path);
+}
+
+.torn_right>div:nth-child(2):after {
+    left: calc(100% - 0.5px);
+}
+
+
+
+
+
 * {
     padding: 0;
     margin: 0;
@@ -9,6 +78,14 @@ body {
     flex-direction: column;
     align-items: center;
     background-image: url('https://images.unsplash.com/photo-1524312966005-030e396636fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fG9sZCUyMHBhcGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60');
+    --torn-shadow-offset-x: -2px;
+    --torn-shadow-offset-y: 2px;
+    --torn-shadow-background-color: rgba(0, 0, 0, 0.25);
+    --torn-background-color: #ffffff;
+    --torn-left-width: 7px;
+    --torn-right-width: 7px;
+    --torn-left-clip-path: polygon(87% 0%, 89% 4%, 58% 8%, 53% 12%, 1% 16%, 69% 20%, 31% 24%, 49% 28%, 2% 32%, 90% 36%, 60% 40%, 38% 44%, 70% 48%, 50% 52%, 32% 56%, 65% 60%, 84% 64%, 80% 68%, 83% 72%, 52% 76%, 3% 80%, 75% 84%, 47% 88%, 63% 92%, 88% 96%, 52% 100%, calc(100% + 1px) 100%, calc(100% + 1px) 0%);
+    --torn-right-clip-path: polygon(82% 0%, 18% 4%, 98% 8%, 66% 12%, 70% 16%, 81% 20%, 11% 24%, 86% 28%, 19% 32%, 1% 36%, 45% 40%, 38% 44%, 20% 48%, 51% 52%, 65% 56%, 77% 60%, 3% 64%, 2% 68%, 70% 72%, 53% 76%, 23% 80%, 81% 84%, 66% 88%, 74% 92%, 57% 96%, 97% 100%, -10% 100%, -10% 0%);
 }
 
 #progress {
@@ -36,6 +113,4 @@ body {
     background-size: contain;
 }
 
-#filled {
-    
-}
+#filled {}
