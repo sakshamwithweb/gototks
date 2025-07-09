@@ -17,7 +17,7 @@ const main = async () => {
     }
 
     for (let i = 1; i <= filledBoxes; i++) {
-        const box = document.getElementsByClassName(`box`)[i]
+        const box = document.getElementsByClassName(`box`)[i-1]
         box.setAttribute("id", "filled")
         console.log(box)
     }
