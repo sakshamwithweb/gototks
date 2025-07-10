@@ -5,6 +5,24 @@ const main = async () => {
     const oneBoxValue = 25;
     const progress = document.getElementById("progress")
 
+    const eachBoxValueElement = document.getElementsByClassName("eachBoxValue")[0]
+    eachBoxValueElement.innerText = `Each Box Value: $${oneBoxValue}`
+
+    const dialog = document.getElementsByClassName('dialog')[0]
+    const whatBtn = document.getElementsByClassName("what")[0]
+    whatBtn.addEventListener("click", () => {
+        dialog.showModal()
+    })
+    dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) {
+            dialog.close();
+        }
+    });
+    const closeWhatBtn = document.getElementsByClassName("close-what")[0]
+    closeWhatBtn.addEventListener("click", () => {
+        dialog.close()
+    })
+
     const data = (await fetchData()).flatMap((item) => {
         if (item.amount > oneBoxValue) {
             const correctItem = { ...item, amount: 25 }
