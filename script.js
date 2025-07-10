@@ -1,7 +1,7 @@
 import { fetchData, timeout } from "./module.js"
 
 const main = async () => {
-    const targetAmount = 1350;
+    const targetAmount = 1390;
     const oneBoxValue = 25;
     const progress = document.getElementById("progress")
 
@@ -25,7 +25,7 @@ const main = async () => {
 
     const data = (await fetchData()).flatMap((item) => {
         if (item.amount > oneBoxValue) {
-            const correctItem = { ...item, amount: 25 }
+            const correctItem = { ...item, amount: oneBoxValue }
             const noOfItem = item.amount / oneBoxValue
             return Array.from({ length: noOfItem }, () => ({ ...correctItem }))
         } else {
@@ -35,6 +35,9 @@ const main = async () => {
 
     const totalAmount = data.reduce((sum, item) => sum + item.amount, 0);
     const filledBoxes = Math.floor(totalAmount / oneBoxValue);
+
+    const totalMoney = document.getElementsByClassName("totalMoney")[0].innerText=`$${targetAmount}`
+    const collectedMoney = document.getElementsByClassName("collected")[0].innerText = `$${totalAmount}`
 
     for (let i = 1; i <= targetAmount / oneBoxValue; i++) {
         const img = document.createElement("img")

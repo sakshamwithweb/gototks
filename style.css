@@ -352,3 +352,20 @@ footer ul li a {
 p a{
     color: var(--color);
 }
+
+.moneyInfo{
+    position: absolute;
+    top:30%;
+    left: 0;
+    border: 1px solid rgb(88, 85, 85);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 20px;
+    height: 30vh;
+    width: 15vw;
+    font-size:large;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: var(--color);
+}
