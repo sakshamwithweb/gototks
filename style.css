@@ -46,8 +46,10 @@ dialog::backdrop {
 
 body {
     font-family: 'myFont', sans-serif;
+    width: 100vw;
+    min-height: 100vh;
     display: flex;
-    overflow: hidden;
+    overflow-x: hidden;
     flex-direction: column;
     align-items: center;
     background-color: #0f1117;
@@ -137,6 +139,7 @@ body {
     width: 60vw;
     padding: 15px;
     margin-top: 30px;
+    margin-bottom: 30px;
     background: linear-gradient(135deg, #23232c, #2d2d44);
     border: 2px solid #444;
     border-radius: 10px;
@@ -260,7 +263,8 @@ body {
 
 footer {
     color: var(--color);
-    position: absolute;
+    position: relative;
+    margin-top: 25px;
     bottom: 0;
     font-size: large;
     padding: 10px;
@@ -349,13 +353,13 @@ footer ul li a {
     font-size: x-large;
 }
 
-p a{
+p a {
     color: var(--color);
 }
 
-.moneyInfo{
+.moneyInfo {
     position: absolute;
-    top:30%;
+    top: 30%;
     left: 0;
     border: 1px solid rgb(88, 85, 85);
     border-top-right-radius: 5px;
@@ -363,9 +367,46 @@ p a{
     padding: 20px;
     height: 30vh;
     width: 15vw;
-    font-size:large;
+    font-size: large;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    color: var(--color);
+}
+
+.next-section-line {
+    border: none;
+    border: 1px solid rgb(20, 55, 80);
+    box-shadow: 0 0 10px rgb(20, 55, 80);
+    margin: 20px 0;
+    width: 80%;
+}
+
+.updates {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.updates h2 {
+    font-size: xx-large;
+    color: var(--color);
+}
+
+.updateTable {
+    border: 1px solid rgb(59, 59, 59);
+    box-shadow: 0 0 10px rgb(20, 55, 80);
+    width: 60vw;
+    border-radius: 5px;
+    padding: 5px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.updateTable li {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 30px;
     color: var(--color);
 }
