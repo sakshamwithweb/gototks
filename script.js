@@ -1,4 +1,4 @@
-import { fetchData, timeout, handleDialog, makingBox, modifyFilledAndNearBoxes, getData, getUpdates, makingUpdates,runDialogForFirstTime } from "./module.js"
+import { fetchData, timeout, handleDialog, makingBox, modifyFilledAndNearBoxes, getData, getUpdates, makingUpdates, runDialogForFirstTime, showDialog } from "./module.js"
 
 const main = async () => {
     const targetAmount = 1390;
@@ -6,7 +6,7 @@ const main = async () => {
     const progress = document.getElementById("progress")
 
     // If it is first time of visitor, show dialog or else no
-    runDialogForFirstTime()
+    runDialogForFirstTime(showDialog)
 
     // Getting correct data, in which splitting >25 into 25s.
     const data = await getData(fetchData, oneBoxValue)
@@ -21,7 +21,7 @@ const main = async () => {
     eachBoxValueElement.innerText = `Each Box Value: $${oneBoxValue}`
 
     // All about dialog
-    handleDialog()
+    handleDialog(showDialog)
 
     // Money Breakdown
     document.getElementsByClassName("totalMoney")[0].innerText = `$${targetAmount}`

@@ -410,3 +410,7 @@ p a {
     margin-left: 30px;
     color: var(--color);
 }
+
+.updateTable li a{
+    color: var(--color);
+}

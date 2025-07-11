@@ -4,15 +4,22 @@ export const fetchData = async () => {
     return res
 }
 
+export const showDialog = () => {
+    const dialog = document.getElementsByClassName('dialog')[0]
+    dialog.showModal()
+    dialog.focus({ preventScroll: true });
+    dialog.scrollTop = 0;
+}
+
 export const timeout = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-export const handleDialog = () => {
+export const handleDialog = (showDialog) => {
     const dialog = document.getElementsByClassName('dialog')[0]
     const whatBtn = document.getElementsByClassName("what")[0]
     whatBtn.addEventListener("click", () => {
-        dialog.showModal()
+        showDialog()
     })
     dialog.addEventListener("click", (event) => {
         if (event.target === dialog) {
@@ -84,11 +91,11 @@ export const makingUpdates = (updates) => {
     }
 }
 
-export const runDialogForFirstTime = () => {
+export const runDialogForFirstTime = (showDialog) => {
     const isVisited = localStorage.getItem("isVisited")
     if (!isVisited) {
-        const dialog = document.getElementsByClassName('dialog')[0]
-        dialog.showModal()
-        localStorage.setItem("isVisited",true)
+        showDialog()
+        localStorage.setItem("isVisited", true)
     }
 }
+
