@@ -83,3 +83,12 @@ export const makingUpdates = (updates) => {
         updateTable.appendChild(update)
     }
 }
+
+export const runDialogForFirstTime = () => {
+    const isVisited = localStorage.getItem("isVisited")
+    if (!isVisited) {
+        const dialog = document.getElementsByClassName('dialog')[0]
+        dialog.showModal()
+        localStorage.setItem("isVisited",true)
+    }
+}
